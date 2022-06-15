@@ -1,3 +1,0 @@
-# AREA
-# AREA
-# AREA
