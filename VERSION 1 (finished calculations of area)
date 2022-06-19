@@ -1,0 +1,67 @@
+import math
+
+def func():
+    print ("Hello, this is a calculator for area and perimeter for the following shapes... \na)square\nb)rectangle\nc)triangle\nd)circle\ne)parallelagram\n")
+    print ("\nYou will choose the shape and enter dimensions")
+    
+    print( "\nChoose your shape:\na)square\nb)rectangle\nc)triangle\nd)circle\ne)parallelagram\n")
+  
+    answer = input("Enter your shape of choice here:")
+
+    #error trap to lowercase to use later
+    answer = answer.lower()
+    #add in confirmation
+
+    if answer == ("square"):
+        while True:
+            try:
+                square_height = int(input("square height dimension:"))
+                break
+            except:
+                print("please enter only a integer")
+        
+        print(square_height*square_height)
+    
+    elif answer == ("rectangle"):
+        while True:
+            try:
+                rectangle_height = int(input("rectangle height dimension:"))
+                rectangle_width = int(input("rectangle width dimension:"))
+                break
+            except:
+                print("please enter only a integer")
+
+        if (rectangle_height != rectangle_width) :
+            try:
+                print(rectangle_height*rectangle_width)
+            except:
+               print("rectangle height and width must be different, please enter correct values")
+        else:
+            print("rectangle height must not equal width dimension")
+
+    elif answer == ("triangle"):
+        try:
+            triangle_height = int(input("triangle height dimension:"))
+            triangle_width = int(input("triangle width dimension:"))
+            print((triangle_height*triangle_width)/2)
+        except:
+            print("please enter only a integer")
+
+    elif answer == ("circle"):
+        try:
+            circle_radius = int(input("radius dimension:"))
+            print(circle_radius*circle_radius*math.pi)
+        except:
+            print("please enter only a integer")
+        
+    elif answer == ("parallelogram"):
+        try:
+            parallelogram_height = int(input("parallelogram height dimension:"))
+            parallelogram_base = int(input("parallelogram base dimension:"))
+            print(parallelogram_height*parallelogram_base)  
+              
+        except:
+            print("please enter only a integer")
+
+    else: print("please enter a valid shape within the list")
+func()
