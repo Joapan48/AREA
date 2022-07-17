@@ -1,0 +1,97 @@
+from curses.textpad import rectangle
+import math
+
+def func():
+    print ("Hello, this is a calculator for area and perimeter for the following shapes... \na)square\nb)rectangle\nc)triangle\nd)circle\ne)parallelagram\n")
+    print ("\nYou will choose the shape, units and enter dimensions")
+    print ("\nPlease enter all dimensions in cm")
+    print( "\nChoose your shape:\na)square\nb)rectangle\nc)triangle\nd)circle\ne)parallelagram\n")
+  
+    shape_choice = input("Enter your shape of choice here:")
+    # function to make sure users input lower case
+    shape_choice = shape_choice.lower()
+    perimeter_unit = ("cm")
+    area_unit = ("cm^2")
+
+    if shape_choice == ("square"):
+        while True:
+            try:
+                square_height = int(input("Square height dimension:"))
+                break
+            except:
+                print("please enter only a integer")
+        
+        sqaure_area = str(square_height*square_height)
+        sqaure_perimeter = str(4*square_height)
+
+        print ("The area of the square is " + sqaure_area + area_unit)
+        print ("The perimeter of the square is " + sqaure_perimeter + perimeter_unit)
+    
+    elif shape_choice == ("rectangle"):
+        while True:
+            try:
+                rectangle_height = int(input("rectangle height dimension:"))
+                rectangle_width = int(input("rectangle width dimension:"))
+                 #fix
+                break
+            except:
+                print("please enter only a integer")
+                
+        rectangle_height != rectangle_height
+        rectangle_area = str(rectangle_width*rectangle_height)
+        rectangle_perimeter = str(2*(rectangle_height)+2*(rectangle_width))
+
+        print ("The area of the rectangle is " + rectangle_area + area_unit)
+        print ("The perimeter of the rectangle is " + rectangle_perimeter + perimeter_unit)
+
+    elif shape_choice == ("triangle"):
+        while True:
+            try:
+                triangle_height = int(input("triangle height dimension:"))
+                triangle_width = int(input("triangle width dimension:"))
+                triangle_side1 = int(input("triangle side 1 dimensions:"))
+                triangle_side2 = int(input("triangle side 2 dimensions:"))
+                triangle_side3 = int(input("triangle side 3 dimensions:"))
+                break
+            except:
+                print("please enter only a integer")
+
+        triangle_area = str(triangle_height*triangle_width)
+        triangle_perimeter = str(triangle_side1+triangle_side2+triangle_side3)
+
+        print ("The area of the triangle is " + triangle_area + area_unit)
+        print ("The perimeter of the triangle is " + triangle_perimeter + perimeter_unit)
+
+    elif shape_choice == ("circle"):
+        while True:  
+            try:
+                circle_radius = int(input("radius dimension:"))
+                break
+            except:
+                print("please enter only a integer")
+
+        circle_area = str(circle_radius*circle_radius*math.pi)
+        circle_perimeter = str(2*math.pi*circle_radius)
+
+        print ("The area of the circle is " + circle_area + area_unit)
+        print ("The perimeter circle is " + circle_perimeter + perimeter_unit)
+        
+    elif shape_choice == ("parallelogram"):
+        while True:  
+            try:
+                parallelogram_height = int(input("parallelogram height dimension:"))
+                parallelogram_base = int(input("parallelogram base dimension:"))
+                parallelogram_side = int(input("parallelogram side dimension:"))
+                break
+                
+            except:
+                print("please enter only a integer")
+
+        parallelogram_area = str(parallelogram_height*parallelogram_base) 
+        parallelogram_perimeter = str(2*(parallelogram_side+parallelogram_base))
+
+        print ("The area of the parallelogram is " + parallelogram_area + area_unit)
+        print ("The perimeter of the parallelogram is " + parallelogram_perimeter + perimeter_unit)
+
+    else: print("please enter a valid shape within the list, check spelling")
+func()
