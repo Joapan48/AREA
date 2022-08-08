@@ -1,0 +1,182 @@
+from copyreg import pickle
+from curses.textpad import rectangle
+import math
+
+#list of shape choice and calculations to store answers
+shapechoice_result = []
+calculation_result = []
+
+#function of shape perimeter and area calculations 
+def square_calc (): 
+            sqaure_area = str(square_height*square_height)
+            sqaure_perimeter = str(4*square_height)
+
+            print ("The area of the square is " + sqaure_area + area_unit)
+            print ("The perimeter of the square is " + sqaure_perimeter + perimeter_unit)
+
+def rectangle_calc ():
+            rectangle_area = str(rectangle_width*rectangle_height)
+            rectangle_perimeter = str(2*(rectangle_height)+2*(rectangle_width))
+
+            print ("The area of the rectangle is " + rectangle_area + area_unit)
+            print ("The perimeter of the rectangle is " + rectangle_perimeter + perimeter_unit)
+
+def triangle_calc ():
+        triangle_area = str(triangle_height*triangle_width)
+        triangle_perimeter = str(triangle_side1+triangle_side2+triangle_side3)
+
+        print ("The area of the triangle is " + triangle_area + area_unit)
+        print ("The perimeter of the triangle is " + triangle_perimeter + perimeter_unit)
+
+
+def circle_calc ():
+        circle_area = str(circle_radius*circle_radius*math.pi)
+        circle_perimeter = str(2*math.pi*circle_radius)
+
+        print ("The area of the circle is " + circle_area + area_unit)
+        print ("The perimeter circle is " + circle_perimeter + perimeter_unit)
+
+
+def parallelogram_calc ():
+        parallelogram_area = str(parallelogram_height*parallelogram_base) 
+        parallelogram_perimeter = str(2*(parallelogram_side+parallelogram_base))
+
+        print ("The area of the parallelogram is " + parallelogram_area + area_unit)
+        print ("The perimeter of the parallelogram is " + parallelogram_perimeter + perimeter_unit)
+
+#instuctions fo users
+print ("Hello, this is a calculator for area and perimeter for the following shapes... \na)square\nb)rectangle\nc)triangle\nd)circle\ne)parallelagram\n")
+print ("\nYou will choose the shape, units and enter dimensions")
+print ("\nPlease enter all dimensions in cm")
+print( "\nChoose your shape:\na)square\nb)rectangle\nc)triangle\nd)circle\ne)parallelagram\n")
+
+#main code 
+while True:
+    shape_choice = input("Enter your shape of choice here:")
+    shapechoice_result.append(shape_choice)
+    #function to make sure users input lower case
+    shape_choice = shape_choice.lower()
+
+    #units
+    perimeter_unit = ("cm")
+    area_unit = ("cm^2")
+    shape_list = ["square", "rectangle", "triangle", "circle", "parallelogram"]
+        
+    if shape_choice == ("square"):
+        while True:
+            try:
+                square_height = float(input("Square height dimension:"))
+                if square_height <= 0:
+                    print("please enter only a positive integer")
+                    continue
+                break
+
+            except:
+                print("please enter only a integer")
+
+        square_calc()
+        break
+
+    elif shape_choice == ("rectangle"):
+        while True:
+            try:
+                rectangle_height = float(input("rectangle height dimension:"))
+                if rectangle_height <= 0:
+                    print("please enter only a positive integer")
+                    continue
+                
+                rectangle_width = float(input("rectangle width dimension:"))
+                if rectangle_width <= 0:
+                    print("please enter only a positive integer")
+                    continue
+                    #fix
+                break
+
+            except:
+                print("please enter only a integer")
+
+        rectangle_calc()
+        break
+
+    elif shape_choice == ("triangle"):
+        while True:
+            try:
+                triangle_height = float(input("triangle height dimension:"))
+                if triangle_height <= 0:
+                    print("please enter only a positive integer")
+                    continue
+
+                triangle_width = float(input("triangle width dimension:"))
+                if triangle_width <= 0:
+                    print("please enter only a positive integer")
+                    continue
+
+                triangle_side1 = float(input("triangle side 1 dimensions:"))
+                if triangle_side1 <= 0:
+                    print("please enter only a positive integer")
+                    continue
+
+                triangle_side2 = float(input("triangle side 2 dimensions:"))
+                if triangle_side2 <= 0:
+                    print("please enter only a positive integer")
+                    continue
+
+                triangle_side3 = float(input("triangle side 3 dimensions:"))
+                if triangle_side3 <= 0:
+                    print("please enter only a positive integer")
+                    continue
+                break
+            except:
+                print("please enter only a integer")
+
+        triangle_calc()
+        break
+
+    elif shape_choice == ("circle"):
+        while True:  
+            try:
+                circle_radius = float(input("radius dimension:"))
+                if circle_radius <= 0:
+                    print("please enter only a positive integer")
+                    continue
+                break
+            except:
+                print("please enter only a integer")
+
+        circle_calc ()
+        break
+        
+    elif shape_choice == ("parallelogram"):
+        while True:  
+            try:
+                parallelogram_height = float(input("parallelogram height dimension:"))
+                if parallelogram_height <= 0:
+                    print("please enter only a positive integer")
+                    continue
+
+                parallelogram_base = float(input("parallelogram base dimension:"))
+                if parallelogram_base <= 0:
+                    print("please enter only a positive integer")
+                    continue
+
+                parallelogram_side = float(input("parallelogram side dimension:"))
+                if parallelogram_side <= 0:
+                    print("please enter only a positive integer")
+                    continue
+                break
+                
+            except:
+                print("please enter only a integer")
+
+        parallelogram_calc ()
+        break
+
+    else: print("Please enter a valid shape from the list, check spelling")
+
+
+ 
+i = 1
+while i > 0:
+    print (shapechoice_result (i)+[i])
+    print (calculation_result[i])
+    i += 1
